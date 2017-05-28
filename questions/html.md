@@ -140,26 +140,44 @@ In terms of similarity, these are all ways to store application data client-side
 `<script>`: html parsing stops; fetches the files; executes file; resumes parsing.
 `<script async>`: downloads file during HTML parsing; pauses HTML parser to execute when it has finished downloading.
 `<script defer>`: downloads file during HTML parsing; executes after parser has completed. `defer` scripts are also guaranteed to execute in the order they appear in the document.
+
+Rules:
+  - If script is modular with no required dependencies, use `async`.
+  - If script relies on or is relied upon by another script, use `defer`.
+  - If script is small and is relied upon by an async script, use an inline script with no attributes and place is above the other async scripts.
 ```
 <a name='11'></a>
-### + Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </body>?<a name='1'></a>
+### + Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </body>?
 ```
+CSS:
+- The purpose is to download the CSS as quick as possible so that the CSSOM building starts ASAP. This allows the render tree to be created sooner, which increases page performance.
+- Putting the CSS in the head means it isn't part of the network request. It's been removed from the critical rendering path!
+
+JS:
+- By putting JS before `</body>`, all the html elements have been rendered before script execution.
 
 ```
 <a name='12'></a>
 ### + Do you know any exceptions?
 ```
+CSS:
+- You may want to include non-essential CSS later since you don't want to overbloat your CSS file since it'll slow down the rendering of the page.
 
+JS:
+- When using jQuery, you can wait until the elements are fully rendered by using `$(document).ready(function(){ // Code here });`
 ```
 <a name='13'></a>
 ### + What is progressive rendering?
+[Reference](https://stackoverflow.com/questions/33651166/what-is-progressive-rendering)
 ```
-
+It refers to techniques used to display content as quickly as possible.
+`Lazy loading`: JS will load image only when it comes into the browser's viewport.
+`Prioritizing visible content` (AKA Above-the-fold rendering): Only include minimum CSS/content/scripts necessary for the amount of the page that would be rendered in the user's browser to display as quickly as possible. Defer other Javascript to load afterward.
 ```
 <a name='14'></a>
 ### + Have you used different HTML templating languages before?
 ```
-Yes, Jade.
+Yes, Jade/Pug. Templating is used in React/Angular, etc.
 ```
 
 
