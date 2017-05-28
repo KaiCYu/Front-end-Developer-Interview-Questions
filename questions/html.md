@@ -27,6 +27,8 @@ Validation Testing
 
 Browser
 - It tells the browser how to render the page in standards-compliant mode.
+- The only purpose of DOCTYPE is to active full standards mode.
+- If you serve the page as XHTML using application/xhtml+xml MIME type in the Content-Type HTTP header, you do not need DOCTYPE to enable standards mode, as they such documents always use full standards mode. 
 
 If no DOCTYPE declaration or incorrect:
 - Cannot use HTML validator as it requires a DOCTYPE declaration.
@@ -35,10 +37,32 @@ If no DOCTYPE declaration or incorrect:
 ```
 <a name='2'></a>
 ### + What's the difference between standards mode and quirks mode?
+```
+Quirks mode (AKA Compatibility mode), layout emulates nonstandard behavior in Navigator 4 and IE5. This is to support websites built before adoption of web standards.
 
+It's a technique used by web browsers to maintain backward compatibility with older webpages. The browser will behave as if it's an older browser.
+
+In Quirks mode, document.body is the root element 
+In standard mode, it's the html element (document.documentElement)
+
+Many HTML/CSS features don't work in Quirks mode.
+```
 <a name='3'></a>
 ### + What's the difference between HTML and XHTML?
+```
+HTML:
+- Start/end tags not required for every element.
+- Only void elements `<br>` `<img>`, and `<link>` may be "self-closed".
+- Tags and attributes are case-insensitive.
+- Attributes don't need to be quoted.
+- Special characters do not have to be escaped.
+- Must include HTML5 DOCTYPE.
 
+XHTML:
+- Uses a stricter syntax.
+- All elements must be closed with an end tag or by self-closing with a />.
+- In order for the browser to parse this document according to XML/XHTML rules, it must be send with `Content-type: application/xml+xhtml` reponse header.
+```
 <a name='4'></a>
 ### + Are there any problems with serving pages as application/xhtml+xml?
 
