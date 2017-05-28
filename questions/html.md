@@ -82,8 +82,8 @@ First version of IE that supports XHTML is IE9.
 ```
 <a name='6'></a>
 ### + What kind of things must you be wary of when design or developing for multilingual sites?
-```
 [Reference](https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites/answer/Ted-Goas?srid=kpHK)
+```
 Things to consider:
 - How will users select their language? Is there something that happens automatically (possibly using IP address)?
 - Text in Images Won't Scale (Will need to have a separate image created for each language)
@@ -94,6 +94,7 @@ Things to consider:
 ```
 <a name='7'></a>
 ### + What are data- attributes good for?
+[Reference](https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/)
 ```
 - They give us the ability to embed custom data attributes on all HTML elements.
 - You can access these attributes with CSS(for styling an element with a specific data attribute) or JS.
@@ -112,29 +113,53 @@ JS (programming language to provide dynamism to sites)
 ```
 <a name='9'></a>
 ### + Describe the difference between a cookie, sessionStorage and localStorage.
+[Reference 1](https://www.w3schools.com/js/js_cookies.asp)
+[Reference 2](https://www.w3schools.com/html/html5_webstorage.asp)
 ```
-
+In terms of similarity, these are all ways to store application data client-side. 
+`document.cookie`:
+  - key-value pairs and has some TTL.
+  - Used to remember information about users like session.
+  - Included in every server request.
+  - By default, the cookie is deleted when browser is closed
+  - Can store about 4kB
+`window.sessionStorage`:
+  - stores data for one session (data lost when browser tab is closed).
+`window.localStorage`:
+  - stores data with no expiration date.
+  - More secure. 
+  - Scoped per origin (per domain and protocol).
+  - Large amounts (5MB) of data can be stored locally without affecting website performance. 
+  - Information is never transfered to the server. 
+  - All pages, from one origin, can store and access the same data.
 ```
 <a name='10'></a>
 ### + Describe the difference between <script>, <script async> and <script defer>.
+[Reference](http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)
 ```
-
+`<script>`: html parsing stops; fetches the files; executes file; resumes parsing.
+`<script async>`: downloads file during HTML parsing; pauses HTML parser to execute when it has finished downloading.
+`<script defer>`: downloads file during HTML parsing; executes after parser has completed. `defer` scripts are also guaranteed to execute in the order they appear in the document.
 ```
 <a name='11'></a>
 ### + Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </body>?<a name='1'></a>
-### + Do you know any exceptions?
 ```
 
 ```
 <a name='12'></a>
-### + What is progressive rendering?
+### + Do you know any exceptions?
 ```
 
 ```
 <a name='13'></a>
-### + Have you used different HTML templating languages before?
+### + What is progressive rendering?
 ```
 
+```
+<a name='14'></a>
+### + Have you used different HTML templating languages before?
+```
+Yes, Jade.
 ```
 
 
