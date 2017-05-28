@@ -22,6 +22,8 @@
 ```
 Document Type Declaration (DTD)
 
+TLDR: Declares which version of HTML the page is written in and which features should be supported.
+
 Validation Testing
 - It tells the HTML validator which version of (X)HTML standard the web page coding is supposed to comply with. It'll check your code against the specified standard.
 
@@ -38,7 +40,7 @@ If no DOCTYPE declaration or incorrect:
 <a name='2'></a>
 ### + What's the difference between standards mode and quirks mode?
 ```
-Quirks mode (AKA Compatibility mode), layout emulates nonstandard behavior in Navigator 4 and IE5. This is to support websites built before adoption of web standards.
+Quirks mode (AKA Compatibility mode), layout emulates nonstandard behavior in Navigator 4 and IE5. This is to support websites built before adoption of web standards. Standard refers to web standards for both HTML and CSS.
 
 It's a technique used by web browsers to maintain backward compatibility with older webpages. The browser will behave as if it's an older browser.
 
@@ -58,38 +60,82 @@ HTML:
 - Special characters do not have to be escaped.
 - Must include HTML5 DOCTYPE.
 
-XHTML:
+XHTML: HTML5 that's written and parsed using syntax rules of XML
 - Uses a stricter syntax.
 - All elements must be closed with an end tag or by self-closing with a />.
 - In order for the browser to parse this document according to XML/XHTML rules, it must be send with `Content-type: application/xml+xhtml` reponse header.
 ```
 <a name='4'></a>
 ### + Are there any problems with serving pages as application/xhtml+xml?
-
+```
+Causes IE8 to show DL dialog box for unknown format instead of displayed page.
+First version of IE that supports XHTML is IE9.
+```
 <a name='5'></a>
 ### + How do you serve a page with content in multiple languages?
+```
+- Partition your site based on language. 
+- Translate each page.
+- Change the language meta-tag in the head of each page
+- Ex: `<html lang="es">` for a spanish site
 
+```
 <a name='6'></a>
 ### + What kind of things must you be wary of when design or developing for multilingual sites?
-
+```
+[Reference](https://www.quora.com/What-kind-of-things-one-should-be-wary-of-when-designing-or-developing-for-multilingual-sites/answer/Ted-Goas?srid=kpHK)
+Things to consider:
+- How will users select their language? Is there something that happens automatically (possibly using IP address)?
+- Text in Images Won't Scale (Will need to have a separate image created for each language)
+- Restrictive Word / Sentence Length
+- Be mindful of how colors are perceived across different cultures
+- remove text content from templates (ALT, TITLE attributes from tags)
+- Formatting dates is different depending on location
+```
 <a name='7'></a>
 ### + What are data- attributes good for?
-
+```
+- They give us the ability to embed custom data attributes on all HTML elements.
+- You can access these attributes with CSS(for styling an element with a specific data attribute) or JS.
+- Ex: `<li data-type="veg" data-distance="2miles" data-identifier="10318">Salad King</li>`
+- Now you can search and sort based on `type`, `distance`, or `identifier`.
+```
 <a name='8'></a>
 ### + Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+```
+HTML (backbone)
+  titles, headers, body, footer, tables, input, etc.
+CSS (style)
+  color, font, position
+JS (programming language to provide dynamism to sites)
 
+```
 <a name='9'></a>
 ### + Describe the difference between a cookie, sessionStorage and localStorage.
+```
 
+```
 <a name='10'></a>
 ### + Describe the difference between <script>, <script async> and <script defer>.
+```
 
+```
 <a name='11'></a>
 ### + Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </body>?<a name='1'></a>
 ### + Do you know any exceptions?
+```
 
+```
 <a name='12'></a>
 ### + What is progressive rendering?
+```
 
+```
 <a name='13'></a>
 ### + Have you used different HTML templating languages before?
+```
+
+```
+
+
+
