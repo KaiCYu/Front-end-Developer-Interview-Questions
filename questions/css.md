@@ -41,22 +41,52 @@
 <a name="1"></a>
 ### + What is the difference between classes and ID's in CSS?
 ```
-TODO
+An ID selector (preceded by hash, #) selects a single element.
+A class selector (preceded by a full stop, .) selects all elements that have the class.
 ```
 <a name="2"></a>
 ### + What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+[Reference](https://teamtreehouse.com/community/reset-vs-normalizecss) | [Reference 2](https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css)
 ```
-TODO
+TLDR: 
+- Resets remove all built-in browser styling
+- Normalize aims to make built-in browser styling consistent across browsers.
+- Use reset if you want everything set to 0. Use normalize if you want a visual starting point and fixing browser issues.
+
+Resetting: Reset.css will remove all default styling (margin, padding, font styles, etc) applied by the browser to give you a blank canvas.
+
+Normalizing: Normalize.css is a base stylesheet meaning its the starting point for your website styles and it styles the default elements to be consistent across browsers. It also provide bug fixes for common problems: display settings for HTML5 elements, SVG overflow in IE9, button styling bug in iOS.
+- More modular
+- Doesn't clutter your dev tools
+- Better documentation
 ```
 <a name="3"></a>
 ### + Describe Floats and how they work.
 ```
-TODO
+Specifying a floated element means that the element remains a part of the flow of the web page (vs. absolutely positioned elements).
+Clear property used to control the behavior of floating elements.
+  Specifies on which sides of an element floating elements are not allowed to float.
+
+// If element taller than container (and it's floated), it will overflow. Add to containing element to fix the problem:
+.clearfix {
+  overflow: auto
+}
+
+// Modern clearfix hack:
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 ```
 <a name="4"></a>
 ### + Describe z-index and how stacking context is formed.
+[Reference](https://www.w3schools.com/cssref/pr_pos_z-index.asp)
 ```
-TODO
+z-index property specifies the stack order of an element.
+- It only works on positioned elements (position:absolute, position:relative, or position:fixed [ANYTHING OTHER THAN static]
+- An element with a larger z-index generally covers an element with a lower one.
 ```
 <a name="5"></a>
 ### + Describe BFC(Block Formatting Context) and how it works.
@@ -66,12 +96,52 @@ TODO
 <a name="6"></a>
 ### + What are the various clearing techniques and which is appropriate for what context?
 ```
-TODO
+- empty <div> method (or <br> element)
+- overflow method: setting overflow property on parent element
+  - parent will expand to contain the floats
+  - useful for when you already have a container div
+- easy clearing method
+  - append clearfix class
+  .clearfix: after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }
+- the future contain-floats value
 ```
 <a name="7"></a>
 ### + Explain CSS sprites, and how you would implement them on a page or site.
 ```
-TODO
+- An image sprite is a collection of images put into a single image.
+- A web page with many images can take a long time to load and generates multiple server requests.
+- Using image sprites will reduce the number of server requests and save bandwidth.
+- Example: 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#home {
+    width: 46px;
+    height: 44px;
+    background: url(img_navsprites.gif) 0 0;
+}
+
+#next {
+    width: 43px;
+    height: 44px;
+    background: url(img_navsprites.gif) -91px 0;
+}
+</style>
+</head>
+<body>
+
+<img id="home" src="img_trans.gif"><br><br>
+<img id="next" src="img_trans.gif">
+
+</body>
+</html>
 ```
 <a name="8"></a>
 ### + What are your favourite image replacement techniques and which do you use when?
@@ -200,10 +270,6 @@ TODO
 ```
 <a name="33"></a>
 ### + Have you ever worked with retina graphics? If so, when and what techniques did you use?
-```
-TODO
-```
-<a name="34"></a>
 ```
 TODO
 ```
