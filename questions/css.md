@@ -146,52 +146,87 @@ TODO
 <a name="8"></a>
 ### + What are your favourite image replacement techniques and which do you use when?
 ```
-TODO
+CSS image replacement is a technique of replacing a text element (usually a header tag) with an image.
 ```
 <a name="9"></a>
 ### + How would you approach fixing browser-specific styling issues?
 ```
-TODO
+- Use a normalized CSS library
+- Implement vendor-specific CSS fixes
+- Test in all targeted browsers
 ```
 <a name="10"></a>
 ### + How do you serve your pages for feature-constrained browsers?
 ```
-TODO
+- Reduce content and layout
+- Add vendor-specific CSS fixes
+- Media query, browser detection
 ```
 <a name="11"></a>
 ### + What techniques/processes do you use?
 ```
-TODO
+- Add vendor-specific CSS fixes
 ```
 <a name="12"></a>
 ### + What are the different ways to visually hide content (and make it available only for screen readers)?
+[Reference](https://www.sitepoint.com/when-and-how-to-visually-hide-content/)
 ```
-TODO
+Position content off-screen:
+
+.hidden {
+  position: absolute;
+  left: -9999em;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+<div class="hidden">Hidden content here.</div>
+
+CSS clipping:
+Clip lets you specify the dimensions of an absolutely positioned element using top, right, bottom, and left values, creating a boxed container for the content. By setting all values to 0 pixels, the content becomes invisible.
+.hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important; 
+  width: 1px !important; 
+  overflow: hidden;
+}
 ```
 <a name="13"></a>
 ### + Have you ever used a grid system, and if so, what do you prefer?
 ```
-TODO
+I've tried Bootstrap.
+There's also: Simple Grid, Pure, Flexbox Grid, and Foundation.
 ```
 <a name="14"></a>
 ### + Have you used or implemented media queries or mobile specific layouts/CSS?
 ```
-TODO
+Media queries.
 ```
 <a name="15"></a>
 ### + Are you familiar with styling SVG?
 ```
-TODO
+
 ```
 <a name="16"></a>
 ### + How do you optimize your webpages for print?
+
 ```
-TODO
+Create a stylesheet specifically for print.
+Format heading and paragraph tags, links and tables, and
+clear unnecessary contents and images.
 ```
 <a name="17"></a>
 ### + What are some of the "gotchas" for writing efficient CSS?
+[Reference](http://jgthms.com/css-interview-questions-and-answers.html)
 ```
-TODO
+- Ordering your CSS: reset, fonts, generic tags, shared properties,
+  common elements, elements, elements in context, colors, z-index, animations, CSS3 vendor-prefix stuff
+
 ```
 <a name="18"></a>
 ### + What are the advantages/disadvantages of using CSS preprocessors?
